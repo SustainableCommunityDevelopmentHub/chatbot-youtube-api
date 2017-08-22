@@ -1,7 +1,6 @@
 module.exports = require("../lib/youtube").Youtube;
 var YoutubeAPI = require(__dirname + '/youtube');
-var YOUTUBE_ACCESS_TOKEN = "AIzaSyDONFWCY6lo0xnejz3xC8Dj1Zn9ede7e-g";
-//const YOUTUBE_ACCESS_TOKEN = "YOUR_YOUTUBE_TOKEN_HERE";
+const YOUTUBE_ACCESS_TOKEN = "YOUR_YOUTUBE_TOKEN_HERE";
 var api = new YoutubeAPI(YOUTUBE_ACCESS_TOKEN);
 var imageUrl = "https://s19.postimg.org/y6pd8dn4j/No_image_available.png";
 
