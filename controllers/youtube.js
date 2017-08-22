@@ -1,6 +1,7 @@
 module.exports = require("../lib/youtube").Youtube;
 var YoutubeAPI = require(__dirname + '/youtube');
-const YOUTUBE_ACCESS_TOKEN = "YOUR_YOUTUBE_TOKEN_HERE";
+var YOUTUBE_ACCESS_TOKEN = "AIzaSyDONFWCY6lo0xnejz3xC8Dj1Zn9ede7e-g";
+//const YOUTUBE_ACCESS_TOKEN = "YOUR_YOUTUBE_TOKEN_HERE";
 var api = new YoutubeAPI(YOUTUBE_ACCESS_TOKEN);
 var imageUrl = "https://s19.postimg.org/y6pd8dn4j/No_image_available.png";
 
@@ -51,10 +52,10 @@ module.exports = {
 
 var loopVideos = function (videoData, done) {
     let elementsData = [];
-    for (var i = 0; i < videoData.pageInfo.resultsPerPage; i++) {
+    for (var i = 0; i < videoData.pageInfo.resultsPerPage || 5; i++) {
         elementsData[i] = {
             "title": videoData.items[i].snippet.title,
-            "imageUrl": videoData.items[i].snippet.thumbnails.high.url || imageUrl,
+            "image_url": videoData.items[i].snippet.thumbnails.high.url || imageUrl,
             "subtitle": videoData.items[i].snippet.description,
             "buttons": [{
                     "type": "web_url",
