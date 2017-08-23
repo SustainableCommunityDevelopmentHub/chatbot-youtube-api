@@ -4,14 +4,14 @@
   "description": "API to fetch youtube videos in cards format for facebook messenger.",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prackky/chatbot-youtube-api.git"
   },
   "keywords": [
-    "youtube-json-to-chatbot-cards"
+    "chatbot-cards", "youtube", "youtube-api"
   ],
   "author": "Prakhar Rastogi",
   "license": "ISC",

@@ -1,0 +1,7 @@
+{
+    "name": "chatbot-youtube-api",
+    "description": "API to fetch youtube videos in cards format for facebook messenger.",
+    "repository": "https://github.com/prackky/chatbot-youtube-api.git",
+    "logo": "https://ih1.redbubble.net/image.109336634.1604/flat,550x550,075,f.u1.jpg",
+    "keywords": ["chatbot-cards", "youtube", "youtube-api"]
+}

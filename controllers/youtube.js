@@ -17,13 +17,13 @@ module.exports = {
                 type: request.query.type || "video",
                 videoDefinition: request.query.videoDefinition || "high"
             };
+            //*********************function to search the video on youtube - START ***************************
             api.getVideoSearch(options, (err, res) => {
                 if (err) {
                     console.log("error received in abs search API...")
                 } else {
-                    let parsedJSON = JSON.parse(res.body) || {};
+                    let videoData = JSON.parse(res.body) || {};
                     //console.log(parsedJSON);
-                    let videoData = parsedJSON;
                     loopVideos(videoData, (elementsData) => {
                         var messageData = [{
                             "attachment": {
@@ -37,10 +37,11 @@ module.exports = {
                         response.send(messageData || [{
                             "text": "Sorry, video service is not available right now..."
                         }]);
-                        console.log("messageData = " + JSON.stringify(messageData));
+                        //console.log("messageData = " + JSON.stringify(messageData));
                     });
                 }
             });
+            //*********************function to search the video on youtube - END ***************************
         } else {
             response.send(messageData || [{
                 "text": "Please send the search query for video search..."
@@ -48,10 +49,10 @@ module.exports = {
         }
     }
 }
-
+//******************* loop through all the data received from youtube API and convert to Facebook gallery format -  START ***********************
 var loopVideos = function (videoData, done) {
-    let elementsData = [];
-    for (var i = 0; i < videoData.pageInfo.resultsPerPage || 5; i++) {
+    let elementsData = []; // elementsData is the JSON format array containing cards
+    for (var i = 0; i < videoData.pageInfo.resultsPerPage; i++) {
         elementsData[i] = {
             "title": videoData.items[i].snippet.title,
             "image_url": videoData.items[i].snippet.thumbnails.high.url || imageUrl,
@@ -73,3 +74,4 @@ var loopVideos = function (videoData, done) {
     //console.log("elementsData = " + elementsData);
     return done(elementsData);
 }
+//******************* loop through all the data received from youtube API and convert to Facebook gallery format -  START ***********************
