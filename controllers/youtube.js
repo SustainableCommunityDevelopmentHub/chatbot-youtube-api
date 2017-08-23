@@ -27,6 +27,7 @@ module.exports = {
                     let videoData = JSON.parse(res.body) || {};
                     //console.log(parsedJSON);
                     loopVideos(videoData, (elementsData) => {
+                        //facebook messenger gallery template...
                         var messageData = [{
                             "attachment": {
                                 "type": "template",
