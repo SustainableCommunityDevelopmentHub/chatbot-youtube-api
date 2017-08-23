@@ -9,7 +9,6 @@ This API takes GET request at /videoChannel path along with search parameters wh
 ## 1. q
 ### TYPE - STRING
 The q parameter specifies the query term to search for.
-sample: 
 - q=latest music
 - q=cardio exercises
 - q=capuchin video
@@ -33,7 +32,7 @@ The order parameter specifies the method that will be used to order resources in
 ### TYPE - STRING
 The videoDefinition parameter lets you restrict a search to only include either high definition (HD) or standard definition (SD) videos. HD videos are available for playback in at least 720p, though higher resolutions, like 1080p, might also be available. If you specify a value for this parameter, you must also set the type parameter's value to video.
 
-###Acceptable values are:
+### Acceptable values are:
 - any – Return all videos, regardless of their resolution.
 - high – Only retrieve HD videos.
 - standard – Only retrieve videos in standard definition.
