@@ -1,9 +1,10 @@
 module.exports = require("../lib/youtube").Youtube;
 var YoutubeAPI = require(__dirname + '/youtube');
-const YOUTUBE_ACCESS_TOKEN = "YOUR_YOUTUBE_TOKEN_HERE";
+const YOUTUBE_ACCESS_TOKEN = process.env.YOUTUBE_ACCESS_TOKEN; // declare your YOUTUBE_ACCESS_TOKEN in heroku environment variable
+                                                               // under settings
 var api = new YoutubeAPI(YOUTUBE_ACCESS_TOKEN);
-var imageUrl = "https://s19.postimg.org/y6pd8dn4j/No_image_available.png";
 
+var imageUrl = "https://s19.postimg.org/y6pd8dn4j/No_image_available.png";
 var youtubeURL = "https://www.youtube.com/watch?v=";
 
 module.exports = {
@@ -11,11 +12,12 @@ module.exports = {
         //console.log(request.query.q);
         if (request.query.q) {
             let options = {
-                search: request.query.q,
+                search: request.query.q, // user query received in request
                 part: "snippet",
-                order: request.query.order || "viewcount",
-                type: request.query.type || "video",
-                videoDefinition: request.query.videoDefinition || "high"
+                order: request.query.order || "relevance", // if user provides order set the value else set as viewcount
+                type: request.query.type || "video", 
+                videoDefinition: request.query.videoDefinition || "any",
+                videoType: "any"
             };
             //*********************function to search the video on youtube - START ***************************
             api.getVideoSearch(options, (err, res) => {
@@ -49,6 +51,7 @@ module.exports = {
         }
     }
 }
+
 //******************* loop through all the data received from youtube API and convert to Facebook gallery format -  START ***********************
 var loopVideos = function (videoData, done) {
     let elementsData = []; // elementsData is the JSON format array containing cards
