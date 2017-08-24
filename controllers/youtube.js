@@ -9,7 +9,7 @@ var youtubeURL = "https://www.youtube.com/watch?v=";
 
 module.exports = {
     youtubeController: function (request, response) {
-        console.log(request);
+        //console.log(request);
         if (request.query.q) {
             try {
                 let options = {
@@ -41,7 +41,7 @@ module.exports = {
                             response.send(messageData || [{
                                 "text": "Sorry, video service is not available right now..."
                             }]);
-                            console.log("messageData = " + JSON.stringify(messageData)); //comment this console log
+                            //console.log("messageData = " + JSON.stringify(messageData)); //comment this console log
                         });
                     }
                 });
