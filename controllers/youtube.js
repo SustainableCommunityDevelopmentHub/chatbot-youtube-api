@@ -11,6 +11,7 @@ module.exports = {
     youtubeController: function (request, response) {
         //console.log(request.query.q);
         if (request.query.q) {
+            try {
             let options = {
                 search: request.query.q, // user query received in request
                 part: "snippet",
@@ -25,7 +26,7 @@ module.exports = {
                     console.log("error received in abs search API...")
                 } else {
                     let videoData = JSON.parse(res.body) || {};
-                    //console.log(parsedJSON);
+                    console.log(parsedJSON); //comment this console log
                     loopVideos(videoData, (elementsData) => {
                         //facebook messenger gallery template...
                         var messageData = [{
@@ -37,13 +38,15 @@ module.exports = {
                                 }
                             }
                         }];
-                        response.send(messageData || [{
-                            "text": "Sorry, video service is not available right now..."
-                        }]);
-                        //console.log("messageData = " + JSON.stringify(messageData));
+                        response.send(messageData || [{"text": "Sorry, video service is not available right now..."}]);
+                        //console.log("messageData = " + JSON.stringify(messageData)); //comment this console log
                     });
                 }
             });
+        }
+        catch(err){
+            console.log(err);
+        }
             //*********************function to search the video on youtube - END ***************************
         } else {
             response.send(messageData || [{
@@ -66,16 +69,10 @@ var loopVideos = function (videoData, done) {
                     "url": youtubeURL + videoData.items[i].id.videoId,
                     "title": "Watch Youtube Video"
                 }
-                // ,
-                // {
-                //     "type": "show_block",
-                //     "block_names": ["Default answer"],
-                //     "title": "Menu"
-                // }
             ]
         }
     }
-    //console.log("elementsData = " + elementsData);
+    console.log("elementsData = " + elementsData); //comment this console log
     return done(elementsData);
 }
 //******************* loop through all the data received from youtube API and convert to Facebook gallery format -  START ***********************
