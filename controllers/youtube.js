@@ -1,6 +1,6 @@
 module.exports = require("../lib/youtube").Youtube;
 var YoutubeAPI = require(__dirname + '/youtube');
-const YOUTUBE_ACCESS_TOKEN = "AIzaSyDONFWCY6lo0xnejz3xC8Dj1Zn9ede7e-g"; // declare your YOUTUBE_ACCESS_TOKEN in heroku environment variable
+const YOUTUBE_ACCESS_TOKEN = process.env.YOUTUBE_ACCESS_TOKEN; // declare your YOUTUBE_ACCESS_TOKEN in heroku environment variable
 // under settings
 var api = new YoutubeAPI(YOUTUBE_ACCESS_TOKEN);
 
