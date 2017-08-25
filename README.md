@@ -1,3 +1,4 @@
+[![Known Vulnerabilities](https://snyk.io/test/github/prackky/chatbot-youtube-api/badge.svg)](https://snyk.io/test/github/prackky/chatbot-youtube-api)
 # chatbot-youtube-api
 API to fetch youtube videos in cards format for facebook messenger.
 
