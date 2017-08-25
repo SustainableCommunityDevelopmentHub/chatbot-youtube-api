@@ -18,7 +18,8 @@ module.exports = {
                     order: request.query.order || "relevance", // if user provides order set the value else set as viewcount
                     type: request.query.type || "video",
                     videoDefinition: request.query.videoDefinition || "any",
-                    videoType: "any"
+                    videoType: "any",
+                    maxResults: request.query.maxResults || 5
                 };
                 //*********************function to search the video on youtube - START ***************************
                 api.getVideoSearch(options, (err, res) => {
