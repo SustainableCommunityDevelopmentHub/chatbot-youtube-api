@@ -21,7 +21,7 @@ The q parameter specifies the query term to search for.
 - q=Water
         
 If you just want to find the relavant videos just provide the "q" parameter with the string. And your URL will be like:
-https://your-deployed-url/videoChannel?q=sustainable+community+development
+https://scdhubvideobot.herokuapp.com/videoChannel?q=sustainable+community+development
 You can also filter your search by providing more parameters mentioned below.
         
 ## 2. order
