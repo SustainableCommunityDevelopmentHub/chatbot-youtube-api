@@ -10,12 +10,18 @@ This API takes GET request at /videoChannel path along with search parameters wh
 ## 1. q
 ### TYPE - STRING
 The q parameter specifies the query term to search for.
-- q=latest music
-- q=cardio exercises
-- q=capuchin video
+- q=Climate
+- q=Energy
+- q=Food
+- q=Land Management
+- q=Social Enterprise
+- q=Shelter
+- q=Transportation
+- q=Waste Management
+- q=Water
         
 If you just want to find the relavant videos just provide the "q" parameter with the string. And your URL will be like:
-https://your-deployed-url/videoChannel?q=justin+bieber+video
+https://your-deployed-url/videoChannel?q=sustainable+community+development
 You can also filter your search by providing more parameters mentioned below.
         
 ## 2. order
@@ -28,6 +34,9 @@ The order parameter specifies the method that will be used to order resources in
 - title – Resources are sorted alphabetically by title.
 - videoCount – Channels are sorted in descending order of their number of uploaded videos.
 - viewCount – Resources are sorted from highest to lowest number of views. For live broadcasts, videos are sorted by number of concurrent   viewers while the broadcasts are ongoing.
+
+TODO: - order by number of comments
+TODO: - query closed captioned text  
   
 ## 3. videoDefinition
 ### TYPE - STRING
